@@ -199,6 +199,8 @@ class PartidaConInterfaz(Partida):
                     super().__init__(jugador1, jugador2)
                     interfaz.crearPartida(self)
                     self.estado = self.ESTADOS[1]
+                salir = not interfaz.pintarSalir()
+
                 for evento in pygame.event.get(): 
                     if evento.type == pygame.QUIT: 
                         salir = True

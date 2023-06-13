@@ -154,6 +154,9 @@ class Interfaz:
         pygame.display.flip()
         self.pantalla.fill(VERDE)
         return self.menu.pintar()
+    
+    def pintarSalir(self):
+        return self.menu.pintarSalir()
                     
 
 
@@ -208,6 +211,11 @@ class Medidas:
         self.BOTON_INICIO_ANCHO = self.ANCHO / 8
         self.BOTON_INICIO_ALTO = self.ALTO / 8
 
+        self.BOTON_SALIR_X = 30
+        self.BOTON_SALIR_Y = self.BOTON_MENU_Y
+        self.BOTON_SALIR_ANCHO = self.BOTON_INICIO_ANCHO * 3/4
+        self.BOTON_SALIR_ALTO = self.BOTON_INICIO_ALTO * 3/4
+
         self.BOTON_JUGADOR1_X = self.ANCHO / 8
         self.BOTON_JUGADOR1_Y = self.ALTO / 4
         self.BOTON_JUGADOR1_ANCHO = self.ANCHO / 4
@@ -258,6 +266,8 @@ class Menu:
         LISTA_CPU = list(self.DICT_CPU.keys())
         self.botonInicio = Botones.Boton(medidas.BOTON_INICIO_X, medidas.BOTON_INICIO_Y, medidas.BOTON_INICIO_ANCHO, medidas.BOTON_INICIO_ALTO, "Iniciar", BLANCO, NARANJA, pantalla)
 
+        self.botonSalir = Botones.Boton(medidas.BOTON_SALIR_X, medidas.BOTON_SALIR_Y, medidas.BOTON_SALIR_ANCHO, medidas.BOTON_SALIR_ALTO, "Salir", BLANCO, ROJO, pantalla)
+
         self.botonJugador1 = Botones.BotonSeleccionable(medidas.BOTON_JUGADOR1_X, medidas.BOTON_JUGADOR1_Y, medidas.BOTON_JUGADOR1_ANCHO, medidas.BOTON_JUGADOR1_ALTO, "Jugador 1", BLANCO, VERDE, GRIS_CLARO, pantalla, True)
         self.botonCPU1 = Botones.BotonFlechasSeleccionable(medidas.BOTON_CPU1_X, medidas.BOTON_CPU1_Y, medidas.BOTON_CPU1_ANCHO, medidas.BOTON_CPU1_ALTO, LISTA_CPU, BLANCO, VERDE, GRIS_CLARO, pantalla, False)
         self.grupoBotones1 = Botones.GrupoBotones(medidas.BOTON_GRUPO1_X, medidas.BOTON_GRUPO1_Y, medidas.BOTON_GRUPO1_ANCHO, medidas.BOTON_GRUPO1_ALTO, BLANCO, self.botonJugador1, self.botonCPU1, pantalla, 1)
@@ -273,6 +283,9 @@ class Menu:
         self.grupoBotones1.pintar()
         self.grupoBotones2.pintar()
         return not self.botonInicio.pintar()
+    
+    def pintarSalir(self):
+        return not self.botonSalir.pintar()
         
         
     
