@@ -8,4 +8,6 @@ Para usar la interfaz gráfica y jugar contra los agentes inteligentes, se ejecu
 
 La ejecución del fichero "SimularPartida.py" permite la siulación de partidas y el almacenamiento de los resultados en el fichero "resultados_simulacion.csv".
 
+1. Por defecto, en el programa predefinido, el almacenamiento de los resultados en el fichero está desactivado. Para activarlo hay que cambiar el parametro "guardarResultadosEnCSV" a "True".
+
 El fichero "resultados_simulacion.csv" contiene los resultados de los experimentos realizados en el proyecto.
